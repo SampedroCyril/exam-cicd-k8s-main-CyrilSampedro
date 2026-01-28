@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "API REST simple pour examen DevOps",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "test": "vitest run --reporter=default",
