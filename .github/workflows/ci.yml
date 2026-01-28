@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/exam-cicd-k8s
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/exam-cicd-k8s-main-cyrilsampedro
 
 jobs:
   build_test:
