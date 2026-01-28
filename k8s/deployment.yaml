@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exam-api
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: exam-api
+  template:
+    metadata:
+      labels:
+        app: exam-api
+    spec:
+      containers:
+        - name: api
+          image: alienogman/exam-cicd-k8s-main-cyrilsampedro:9b1f250
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: exam-api-config
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 2
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
