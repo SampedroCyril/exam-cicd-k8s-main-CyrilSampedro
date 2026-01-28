@@ -1,0 +1,20 @@
+{
+  "name": "simple-api",
+  "version": "1.0.0",
+  "description": "API REST simple pour examen DevOps",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "vitest run --reporter=default",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "supertest": "^7.2.2"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.17",
+    "vitest": "^4.0.17"
+  }
+}
